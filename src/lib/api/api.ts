@@ -12,5 +12,5 @@ export const deleteUser = async (id: number): Promise<IDeleteUsers> => {
 };
 
 export const createUsers = async (data: ICreateUsers) => {
-  return await axios.post(api, data);
+  return (await axios.post(api, data)).data;
 };

@@ -21,10 +21,10 @@ const Bottom = () => {
       {data?.map((el) => (
         <div key={el.id} className="w-100 h-80 bg-neutral-800/70 rounded-2xl">
           <img src={el.img} alt="" className="w-full h-[65%] rounded-2xl" />
-          <p className=" text-xl pl-3">{el.name}</p>
+          <p className=" text-xl pl-3 pt-2">{el.name}</p>
           <p className="pl-3 text-xs text-white/60 truncate">{el.title}</p>
           <div className="p-3 flex justify-between items-center">
-            <Button>Просмотр</Button>
+            <Button>Редактировать</Button>
             <Button type="primary" danger onClick={()=>deletingUser(el.id)}>Удалить</Button>
           </div>
         </div>
