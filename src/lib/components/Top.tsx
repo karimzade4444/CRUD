@@ -4,6 +4,7 @@ import { getUsers } from "../api/api";
 import CreateModal from "./modal/CreateModal";
 import { useState } from "react";
 
+
 const Top = () => {
   const { data } = useQuery({
     queryFn: getUsers,
@@ -11,6 +12,7 @@ const Top = () => {
   });
 
   const [openCreateModal, setOpenCreateModal] = useState(false);
+  
   return (
     <>
       <div className=" flex justify-between items-center">
