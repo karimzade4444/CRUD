@@ -19,3 +19,10 @@ export interface IEditUser {
   title: string;
   category: string;
 }
+
+export interface IGetUser {
+  id: number;
+  name: string;
+  title: string;
+  category: string;
+}
