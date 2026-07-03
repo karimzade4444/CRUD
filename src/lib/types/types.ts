@@ -12,5 +12,5 @@ export interface IDeleteUsers {
 export interface ICreateUsers {
   name: string;
   title: string;
-  category: string;
+  img: string;
 }

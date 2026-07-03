@@ -2,13 +2,15 @@ import { useQuery } from "@tanstack/react-query";
 import { Button, Input } from "antd";
 import { getUsers } from "../api/api";
 import CreateModal from "./modal/CreateModal";
-
+import { useState } from "react";
 
 const Top = () => {
   const { data } = useQuery({
     queryFn: getUsers,
     queryKey: ["getUsers"],
   });
+
+  const [openCreateModal, setOpenCreateModal] = useState(false);
   return (
     <>
       <div className=" flex justify-between items-center">
@@ -20,7 +22,7 @@ const Top = () => {
         </div>
         <div className=" flex justify-center items-center gap-7">
           <p className="text-white/60">Всего: {data?.length}</p>
-          <Button>+ Добавить</Button>
+          <Button onClick={() => setOpenCreateModal(true)}>+ Добавить</Button>
         </div>
       </div>
       <Input
@@ -28,7 +30,7 @@ const Top = () => {
         variant="underlined"
         className="bg-white/0! w-120! text-white! placeholder:text-white/80! mt-15!"
       />
-      <CreateModal />
+      <CreateModal openCreateModal={openCreateModal} setOpenCreateModal={setOpenCreateModal}/>
     </>
   );
 };
