@@ -2,13 +2,18 @@ import { useQuery } from "@tanstack/react-query";
 import { Button, Input } from "antd";
 import { getUsers } from "../api/api";
 import CreateModal from "./modal/CreateModal";
-import { useState } from "react";
+import { useState, type Dispatch, type SetStateAction } from "react";
 
+interface ISearch {
+    search: string
+    setSearch: Dispatch<SetStateAction<string>>
+}
 
-const Top = () => {
+const Top = ({search, setSearch}:ISearch) => {
+    
   const { data } = useQuery({
-    queryFn: getUsers,
-    queryKey: ["getUsers"],
+    queryKey: ["getUsers", search],
+    queryFn:()=> getUsers(search),
   });
 
   const [openCreateModal, setOpenCreateModal] = useState(false);
@@ -30,7 +35,9 @@ const Top = () => {
       <Input
         placeholder="Поиск..."
         variant="underlined"
+        value={search}
         className="bg-white/0! w-120! text-white! placeholder:text-white/80! mt-15!"
+        onChange={(e)=>setSearch(e.target.value)}
       />
       <CreateModal openCreateModal={openCreateModal} setOpenCreateModal={setOpenCreateModal}/>
     </>

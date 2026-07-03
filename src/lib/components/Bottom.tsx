@@ -4,11 +4,14 @@ import { Button } from "antd";
 import { useState } from "react";
 import EditModal from "./modal/EditModal";
 
+interface ISearchOb{
+    search: string
+}
 
-const Bottom = () => {
+const Bottom = ({search}:ISearchOb) => {
     const { data } = useQuery({
-        queryFn:getUsers,
-        queryKey:["getUsers"]
+        queryFn:()=>getUsers(search),
+        queryKey:["getUsers",search]
     });
     const [id, setId] = useState<number>();
     const queryClient = useQueryClient();
