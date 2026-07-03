@@ -2,7 +2,7 @@ import { Button } from "antd";
 
 const Top = () => {
   return (
-    <div>
+    <div className=" flex justify-between items-center">
       <div>
         <p>Мини CRUD</p>
         <p>Поиск • Модальные окна • Карточки</p>
