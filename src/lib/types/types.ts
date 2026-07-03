@@ -4,3 +4,7 @@ export interface IGetUsers {
   title: string;
   img: string;
 }
+
+export interface IDeleteUsers{
+    id: number;
+}
