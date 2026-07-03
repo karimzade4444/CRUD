@@ -3,8 +3,10 @@ import type { ICreateUsers, IDeleteUsers, IEditUser, IGetUser, IGetUsers } from 
 
 const api = "https://69e5ff70ce4e908a155ec5a1.mockapi.io/users";
 
-export const getUsers = async (): Promise<IGetUsers[]> => {
-  return (await axios.get(api)).data;
+export const getUsers = async (search?:string): Promise<IGetUsers[]> => {
+  return (await axios.get(api, {
+    params: search?{search}:{},
+  })).data;
 };
 
 export const deleteUser = async (id: number): Promise<IDeleteUsers> => {
