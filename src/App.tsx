@@ -1,8 +1,13 @@
+import Bottom from "./lib/components/Bottom"
+import Top from "./lib/components/Top"
 
 
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+      <Top/>
+      <Bottom/>
+    </div>
   )
 }
 
