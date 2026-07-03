@@ -14,3 +14,8 @@ export interface ICreateUsers {
   title: string;
   img: string;
 }
+export interface IEditUser {
+  name: string;
+  title: string;
+  category: string;
+}

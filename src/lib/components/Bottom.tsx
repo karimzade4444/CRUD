@@ -28,7 +28,7 @@ const Bottom = () => {
           <p className=" text-xl pl-3 pt-2">{el.name}</p>
           <p className="pl-3 text-xs text-white/60 truncate">{el.title}</p>
           <div className="p-3 flex justify-between items-center">
-            <Button>Редактировать</Button>
+            <Button onClick={()=>setOpenEditModal(true)}>Редактировать</Button>
             <Button type="primary" danger onClick={() => deletingUser(el.id)}>
               Удалить
             </Button>
