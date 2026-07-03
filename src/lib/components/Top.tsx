@@ -1,7 +1,13 @@
+import { useQuery } from "@tanstack/react-query";
 import { Button, Input } from "antd";
+import { getUsers } from "../api/api";
 
 
 const Top = () => {
+    const { data } = useQuery({
+      queryFn: getUsers,
+      queryKey: ["getUsers"],
+    });
   return (
     <>
       <div className=" flex justify-between items-center">
@@ -12,7 +18,7 @@ const Top = () => {
           </p>
         </div>
         <div className=" flex justify-center items-center gap-7">
-          <p className="text-white/60">Всего: 0</p>
+          <p className="text-white/60">Всего: {data?.length}</p>
           <Button>+ Добавить</Button>
         </div>
       </div>
