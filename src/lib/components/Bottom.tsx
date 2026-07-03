@@ -10,6 +10,7 @@ const Bottom = () => {
         queryFn:getUsers,
         queryKey:["getUsers"]
     });
+    const [id, setId] = useState<number>();
     const queryClient = useQueryClient();
     const {mutate:deletingUser} = useMutation({
         mutationFn: deleteUser,
@@ -28,14 +29,16 @@ const Bottom = () => {
           <p className=" text-xl pl-3 pt-2">{el.name}</p>
           <p className="pl-3 text-xs text-white/60 truncate">{el.title}</p>
           <div className="p-3 flex justify-between items-center">
-            <Button onClick={()=>setOpenEditModal(true)}>Редактировать</Button>
+            <Button onClick={()=>{
+                setOpenEditModal(true);
+                setId(el.id)}}>Редактировать</Button>
             <Button type="primary" danger onClick={() => deletingUser(el.id)}>
               Удалить
             </Button>
           </div>
         </div>
       ))}
-      <EditModal />
+      <EditModal id={id} openEditModal={openEditModal} setOpenEditModal={setOpenEditModal}/>
     </div>
   );
 }

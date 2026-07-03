@@ -17,12 +17,12 @@ export interface ICreateUsers {
 export interface IEditUser {
   name: string;
   title: string;
-  category: string;
+  img: string;
 }
 
 export interface IGetUser {
   id: number;
   name: string;
   title: string;
-  category: string;
+  img: string;
 }

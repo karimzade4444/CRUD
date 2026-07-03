@@ -1,8 +1,8 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { Input, Modal } from "antd";
+import {  Modal } from "antd";
 import type { Dispatch, SetStateAction } from "react";
 import { useForm } from "react-hook-form";
-import { type ICreateUsers, type IGetUsers } from "../../types/types";
+import { type ICreateUsers,  } from "../../types/types";
 import { createUsers } from "../../api/api";
 
 
