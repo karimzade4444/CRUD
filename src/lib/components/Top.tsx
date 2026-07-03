@@ -1,3 +1,5 @@
+import { Button } from "antd";
+
 const Top = () => {
   return (
     <div>
@@ -7,6 +9,7 @@ const Top = () => {
       </div>
       <div>
         <p>Всего: 0</p>
+        <Button>+ Добавить</Button>
       </div>
     </div>
   );
