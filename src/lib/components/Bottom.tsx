@@ -1,5 +1,5 @@
-import { useQuery } from "@tanstack/react-query"
-import { getUsers } from "../api/api"
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
+import { deleteUser, getUsers } from "../api/api"
 import { Button } from "antd";
 
 
@@ -8,6 +8,13 @@ const Bottom = () => {
         queryFn:getUsers,
         queryKey:["getUsers"]
     });
+    const queryClient = useQueryClient();
+    const {mutate:deletingUser} = useMutation({
+        mutationFn: deleteUser,
+        onSuccess:()=>{
+            queryClient.invalidateQueries({queryKey:["getUsers"]})
+        }
+    })
 
   return (
     <div className=" flex justify-around flex-wrap gap-10 mt-10">
@@ -18,7 +25,7 @@ const Bottom = () => {
           <p className="pl-3 text-xs text-white/60 truncate">{el.title}</p>
           <div className="p-3 flex justify-between items-center">
             <Button>Просмотр</Button>
-            <Button type="primary" danger>Удалить</Button>
+            <Button type="primary" danger onClick={()=>deletingUser(el.id)}>Удалить</Button>
           </div>
         </div>
       ))}
